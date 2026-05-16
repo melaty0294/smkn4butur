@@ -1,0 +1,683 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
+    <title>SMK Negeri 4 Buton Utara | Unggul, Terampil, Berkarakter</title>
+    <!-- Google Fonts & Font Awesome -->
+    <link href="https://fonts.googleapis.com/css2?family=Inter:opsz,wght@14..32,300;14..32,400;14..32,600;14..32,700;14..32,800&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+    <!-- AOS Library -->
+    <link href="https://unpkg.com/aos@2.3.1/dist/aos.css" rel="stylesheet">
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Inter', sans-serif;
+            background-color: #f8fafc;
+            color: #0f172a;
+            line-height: 1.5;
+            scroll-behavior: smooth;
+        }
+
+        /* modern container */
+        .container {
+            max-width: 1280px;
+            margin: 0 auto;
+            padding: 0 24px;
+        }
+
+        /* navbar glassmorphism */
+        .navbar {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            background: rgba(255, 255, 255, 0.92);
+            backdrop-filter: blur(12px);
+            box-shadow: 0 4px 20px rgba(0, 0, 0, 0.02);
+            z-index: 1000;
+            transition: all 0.3s ease;
+            border-bottom: 1px solid rgba(0, 0, 0, 0.05);
+        }
+
+        .nav-container {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 16px 24px;
+            max-width: 1280px;
+            margin: 0 auto;
+        }
+
+        .logo {
+            display: flex;
+            align-items: center;
+            gap: 12px;
+        }
+
+        .logo-icon {
+            background: linear-gradient(135deg, #1e3c72, #2b4c7c);
+            width: 42px;
+            height: 42px;
+            border-radius: 12px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: white;
+            font-size: 22px;
+            box-shadow: 0 8px 14px rgba(0, 0, 0, 0.05);
+        }
+
+        .logo h1 {
+            font-size: 1.5rem;
+            font-weight: 700;
+            background: linear-gradient(120deg, #0f2b3d, #1e4a76);
+            background-clip: text;
+            -webkit-background-clip: text;
+            color: transparent;
+        }
+
+        .logo span {
+            font-weight: 500;
+            font-size: 0.8rem;
+            color: #2c5f8a;
+            display: block;
+            line-height: 1.2;
+        }
+
+        .nav-links {
+            display: flex;
+            gap: 32px;
+            align-items: center;
+        }
+
+        .nav-links a {
+            text-decoration: none;
+            font-weight: 600;
+            color: #1e293b;
+            transition: 0.2s;
+            font-size: 0.95rem;
+        }
+
+        .nav-links a:hover {
+            color: #2c7da0;
+        }
+
+        .btn-contact {
+            background: #1e4a76;
+            color: white !important;
+            padding: 8px 20px;
+            border-radius: 40px;
+            transition: 0.2s;
+        }
+
+        .btn-contact:hover {
+            background: #0f3b5f;
+            transform: scale(1.02);
+        }
+
+        .menu-toggle {
+            display: none;
+            font-size: 1.6rem;
+            cursor: pointer;
+            color: #1e293b;
+        }
+
+        /* hero section modern */
+        .hero {
+            min-height: 90vh;
+            background: linear-gradient(105deg, #f1f5f9 0%, #e6edf4 100%);
+            display: flex;
+            align-items: center;
+            padding-top: 100px;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .hero-grid {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 48px;
+            align-items: center;
+        }
+
+        .hero-title {
+            font-size: 3.2rem;
+            font-weight: 800;
+            line-height: 1.2;
+            margin-bottom: 20px;
+            background: linear-gradient(to right, #0f2b3d, #2c7da0);
+            background-clip: text;
+            -webkit-background-clip: text;
+            color: transparent;
+        }
+
+        .hero-desc {
+            font-size: 1.1rem;
+            color: #334155;
+            margin-bottom: 32px;
+            border-left: 4px solid #2c7da0;
+            padding-left: 20px;
+        }
+
+        .hero-buttons {
+            display: flex;
+            gap: 16px;
+            flex-wrap: wrap;
+        }
+
+        .btn-primary {
+            background: #1e4a76;
+            color: white;
+            padding: 12px 28px;
+            border-radius: 40px;
+            font-weight: 600;
+            text-decoration: none;
+            transition: all 0.2s;
+            display: inline-block;
+            box-shadow: 0 4px 8px rgba(0,0,0,0.05);
+        }
+
+        .btn-primary:hover {
+            background: #0e3a5c;
+            transform: translateY(-2px);
+        }
+
+        .btn-outline {
+            background: transparent;
+            border: 1.5px solid #1e4a76;
+            color: #1e4a76;
+            padding: 12px 28px;
+            border-radius: 40px;
+            font-weight: 600;
+            text-decoration: none;
+            transition: 0.2s;
+        }
+
+        .btn-outline:hover {
+            background: #1e4a76;
+            color: white;
+        }
+
+        .hero-image img {
+            width: 100%;
+            border-radius: 32px;
+            box-shadow: 0 25px 40px -12px rgba(0, 0, 0, 0.2);
+            object-fit: cover;
+        }
+
+        /* section umum */
+        section {
+            padding: 80px 0;
+        }
+
+        .section-title {
+            font-size: 2.2rem;
+            font-weight: 700;
+            text-align: center;
+            margin-bottom: 56px;
+            position: relative;
+        }
+
+        .section-title:after {
+            content: '';
+            position: absolute;
+            bottom: -14px;
+            left: 50%;
+            transform: translateX(-50%);
+            width: 80px;
+            height: 4px;
+            background: linear-gradient(90deg, #2c7da0, #1e4a76);
+            border-radius: 4px;
+        }
+
+        /* card jurusan */
+        .jurusan-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
+            gap: 32px;
+        }
+
+        .card {
+            background: white;
+            border-radius: 28px;
+            padding: 32px 24px;
+            text-align: center;
+            transition: 0.25s ease;
+            box-shadow: 0 12px 24px -12px rgba(0, 0, 0, 0.08);
+            border: 1px solid rgba(0,0,0,0.03);
+        }
+
+        .card:hover {
+            transform: translateY(-8px);
+            box-shadow: 0 20px 30px -12px rgba(0, 0, 0, 0.12);
+        }
+
+        .card-icon {
+            font-size: 3rem;
+            background: #eef2ff;
+            width: 80px;
+            height: 80px;
+            line-height: 80px;
+            border-radius: 50%;
+            margin: 0 auto 20px;
+            color: #1e4a76;
+        }
+
+        .card h3 {
+            font-size: 1.5rem;
+            margin-bottom: 12px;
+        }
+
+        .card p {
+            color: #475569;
+        }
+
+        /* prestasi slider sederhana */
+        .prestasi-container {
+            background: #ffffff;
+            border-radius: 40px;
+            padding: 24px;
+            box-shadow: 0 12px 28px rgba(0,0,0,0.05);
+        }
+
+        .prestasi-flex {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 32px;
+            justify-content: center;
+        }
+
+        .prestasi-item {
+            flex: 1;
+            min-width: 220px;
+            background: #f9fbfd;
+            padding: 28px 16px;
+            border-radius: 28px;
+            text-align: center;
+            transition: 0.2s;
+        }
+
+        .prestasi-item i {
+            font-size: 2.8rem;
+            color: #f59e0b;
+        }
+
+        .prestasi-item h4 {
+            font-size: 1.9rem;
+            font-weight: 800;
+            margin: 12px 0 8px;
+        }
+
+        /* Berita / artikel */
+        .berita-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 32px;
+        }
+
+        .berita-card {
+            background: white;
+            border-radius: 28px;
+            overflow: hidden;
+            box-shadow: 0 10px 20px rgba(0, 0, 0, 0.03);
+            transition: 0.2s;
+        }
+
+        .berita-card:hover {
+            transform: scale(1.01);
+        }
+
+        .berita-img {
+            background: #cbd5e1;
+            height: 180px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 3rem;
+            color: #334155;
+        }
+
+        .berita-content {
+            padding: 24px;
+        }
+
+        .berita-date {
+            font-size: 0.8rem;
+            color: #2c7da0;
+            margin-bottom: 10px;
+        }
+
+        /* kontak dan footer */
+        .contact-section {
+            background: #0f172a;
+            color: #e2e8f0;
+            border-radius: 48px 48px 0 0;
+            margin-top: 40px;
+        }
+
+        .contact-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(240px, 1fr));
+            gap: 48px;
+        }
+
+        .contact-info i {
+            width: 40px;
+            font-size: 1.3rem;
+            color: #60a5fa;
+        }
+
+        .footer-bottom {
+            text-align: center;
+            padding: 24px 0;
+            border-top: 1px solid rgba(255,255,255,0.1);
+            margin-top: 48px;
+        }
+
+        /* responsive */
+        @media (max-width: 900px) {
+            .hero-grid {
+                grid-template-columns: 1fr;
+                text-align: center;
+            }
+            .hero-desc {
+                border-left: none;
+                padding-left: 0;
+            }
+            .hero-buttons {
+                justify-content: center;
+            }
+            .nav-links {
+                position: fixed;
+                top: 78px;
+                left: -100%;
+                background: rgba(255, 255, 255, 0.98);
+                backdrop-filter: blur(16px);
+                width: 80%;
+                height: 100vh;
+                flex-direction: column;
+                padding: 40px 24px;
+                gap: 28px;
+                transition: 0.3s;
+                box-shadow: 8px 0 20px rgba(0,0,0,0.05);
+                border-right: 1px solid #e2e8f0;
+            }
+            .nav-links.active {
+                left: 0;
+            }
+            .menu-toggle {
+                display: block;
+            }
+            .btn-contact {
+                display: inline-block;
+            }
+            .section-title {
+                font-size: 1.8rem;
+            }
+        }
+
+        @media (max-width: 480px) {
+            .hero-title {
+                font-size: 2.2rem;
+            }
+            .container {
+                padding: 0 20px;
+            }
+        }
+
+        /* animasi simple */
+        .hover-lift {
+            transition: 0.2s;
+        }
+    </style>
+</head>
+<body>
+    <!-- Navbar modern -->
+    <nav class="navbar">
+        <div class="nav-container">
+            <div class="logo">
+                <div class="logo-icon"><i class="fas fa-graduation-cap"></i></div>
+                <div>
+                    <h1>SMK Negeri 4</h1>
+                    <span>Buton Utara</span>
+                </div>
+            </div>
+            <div class="menu-toggle" id="mobile-menu">
+                <i class="fas fa-bars"></i>
+            </div>
+            <div class="nav-links" id="nav-links">
+                <a href="#home">Beranda</a>
+                <a href="#jurusan">Jurusan</a>
+                <a href="#prestasi">Prestasi</a>
+                <a href="#berita">Berita</a>
+                <a href="#contact" class="btn-contact">Kontak</a>
+            </div>
+        </div>
+    </nav>
+
+    <!-- Hero Section -->
+    <section id="home" class="hero">
+        <div class="container hero-grid">
+            <div data-aos="fade-right" data-aos-duration="800">
+                <div class="hero-title">Mencetak Generasi <br>Unggul & Inovatif</div>
+                <p class="hero-desc">SMK Negeri 4 Buton Utara - Pusat keunggulan vokasi dengan pendidikan berbasis teknologi, karakter, dan kewirausahaan. Siap menyongsong masa depan gemilang.</p>
+                <div class="hero-buttons">
+                    <a href="#jurusan" class="btn-primary">Jelajahi Jurusan <i class="fas fa-arrow-right"></i></a>
+                    <a href="#contact" class="btn-outline">Info Pendaftaran</a>
+                </div>
+            </div>
+            <div data-aos="fade-left" data-aos-duration="800" class="hero-image">
+                <img src="https://placehold.co/600x450/1e4a76/white?text=SMK+NEGERI+4+BUTON+UTARA" alt="SMK Negeri 4 Buton Utara">
+            </div>
+        </div>
+    </section>
+
+    <!-- Jurusan / Kompetensi Keahlian -->
+    <section id="jurusan">
+        <div class="container">
+            <h2 class="section-title" data-aos="fade-up">Kompetensi Keahlian</h2>
+            <div class="jurusan-grid">
+                <div class="card" data-aos="zoom-in" data-aos-delay="100">
+                    <div class="card-icon"><i class="fas fa-laptop-code"></i></div>
+                    <h3>RPL</h3>
+                    <p>Rekayasa Perangkat Lunak - Kuasai pengembangan web, mobile, dan AI modern.</p>
+                </div>
+                <div class="card" data-aos="zoom-in" data-aos-delay="200">
+                    <div class="card-icon"><i class="fas fa-network-wired"></i></div>
+                    <h3>TKJ</h3>
+                    <p>Teknik Komputer & Jaringan - Ahli infrastruktur jaringan dan keamanan siber.</p>
+                </div>
+                <div class="card" data-aos="zoom-in" data-aos-delay="300">
+                    <div class="card-icon"><i class="fas fa-chalkboard-user"></i></div>
+                    <h3>OTKP</h3>
+                    <p>Otomatisasi & Tata Kelola Perkantoran - Manajemen perkantoran digital.</p>
+                </div>
+                <div class="card" data-aos="zoom-in" data-aos-delay="400">
+                    <div class="card-icon"><i class="fas fa-store"></i></div>
+                    <h3>BDP</h3>
+                    <p>Bisnis Daring & Pemasaran - E-commerce, content marketing, digital branding.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Prestasi & Statistik -->
+    <section id="prestasi" style="background: #f1f5f9;">
+        <div class="container">
+            <h2 class="section-title" data-aos="fade-up">Kilau Prestasi</h2>
+            <div class="prestasi-container" data-aos="fade-up">
+                <div class="prestasi-flex">
+                    <div class="prestasi-item">
+                        <i class="fas fa-trophy"></i>
+                        <h4>25+</h4>
+                        <p>Medali Kompetisi</p>
+                    </div>
+                    <div class="prestasi-item">
+                        <i class="fas fa-users"></i>
+                        <h4>100%</h4>
+                        <p>Guru Bersertifikasi</p>
+                    </div>
+                    <div class="prestasi-item">
+                        <i class="fas fa-building"></i>
+                        <h4>15+</h4>
+                        <p>Mitra Industri</p>
+                    </div>
+                    <div class="prestasi-item">
+                        <i class="fas fa-award"></i>
+                        <h4>Akreditasi A</h4>
+                        <p>Unggul & Terakreditasi</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Berita & Aktivitas -->
+    <section id="berita">
+        <div class="container">
+            <h2 class="section-title" data-aos="fade-up">Informasi & Kegiatan</h2>
+            <div class="berita-grid">
+                <div class="berita-card" data-aos="fade-up" data-aos-delay="100">
+                    <div class="berita-img"><i class="fas fa-microphone-alt"></i></div>
+                    <div class="berita-content">
+                        <div class="berita-date"><i class="far fa-calendar-alt"></i> 12 Mei 2026</div>
+                        <h3>Workshop AI & Digitalisasi Sekolah</h3>
+                        <p>SMK Negeri 4 Buton Utara menggelar workshop artificial intelligence untuk guru dan siswa.</p>
+                    </div>
+                </div>
+                <div class="berita-card" data-aos="fade-up" data-aos-delay="200">
+                    <div class="berita-img"><i class="fas fa-medal"></i></div>
+                    <div class="berita-content">
+                        <div class="berita-date"><i class="far fa-calendar-alt"></i> 3 April 2026</div>
+                        <h3>Juara 1 LKS Tingkat Provinsi</h3>
+                        <p>Tim TKJ berhasil meraih juara pertama Lomba Kompetensi Siswa bidang IT Network.</p>
+                    </div>
+                </div>
+                <div class="berita-card" data-aos="fade-up" data-aos-delay="300">
+                    <div class="berita-img"><i class="fas fa-handshake"></i></div>
+                    <div class="berita-content">
+                        <div class="berita-date"><i class="far fa-calendar-alt"></i> 20 Maret 2026</div>
+                        <h3>Kerjasama dengan PT. Inovasi Digital</h3>
+                        <p>Penandatanganan MoU magang industri untuk siswa kelas XII.</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Kontak & Alamat Modern -->
+    <section id="contact" class="contact-section">
+        <div class="container" style="padding: 60px 24px 20px;">
+            <h2 class="section-title" style="color: white;">Hubungi Kami</h2>
+            <div class="contact-grid" data-aos="fade-up">
+                <div class="contact-info">
+                    <i class="fas fa-map-marker-alt"></i>
+                    <h3>Alamat</h3>
+                    <p>Jl. Poros Kulisusu - Wakorumba, Desa Labuan, Kec. Kulisusu, Kab. Buton Utara, Sulawesi Tenggara, Indonesia 93673</p>
+                </div>
+                <div class="contact-info">
+                    <i class="fas fa-phone-alt"></i>
+                    <h3>Kontak</h3>
+                    <p>+62 822 4567 8901</p>
+                    <p>+62 852 1234 5678</p>
+                </div>
+                <div class="contact-info">
+                    <i class="fas fa-envelope"></i>
+                    <h3>Email</h3>
+                    <p>info@smkn4butonutara.sch.id</p>
+                    <p>humas@smkn4butonutara.sch.id</p>
+                </div>
+                <div class="contact-info">
+                    <i class="fas fa-clock"></i>
+                    <h3>Jam Operasional</h3>
+                    <p>Senin - Jumat: 07.30 - 16.00 WITA</p>
+                    <p>Sabtu: Konsultasi Online</p>
+                </div>
+            </div>
+            <div class="footer-bottom">
+                <p>&copy; 2026 SMK Negeri 4 Buton Utara - Terdepan dalam Vokasi & Teknologi</p>
+                <div style="margin-top: 12px; gap: 20px; display: flex; justify-content: center;">
+                    <a href="#" style="color:#94a3b8; margin:0 12px;"><i class="fab fa-facebook-f"></i></a>
+                    <a href="#" style="color:#94a3b8; margin:0 12px;"><i class="fab fa-instagram"></i></a>
+                    <a href="#" style="color:#94a3b8; margin:0 12px;"><i class="fab fa-youtube"></i></a>
+                    <a href="#" style="color:#94a3b8; margin:0 12px;"><i class="fab fa-tiktok"></i></a>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- AOS Init + mobile menu-->
+    <script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>
+    <script>
+        AOS.init({
+            duration: 800,
+            once: true,
+            offset: 100,
+        });
+
+        const mobileMenu = document.getElementById('mobile-menu');
+        const navLinks = document.getElementById('nav-links');
+
+        mobileMenu.addEventListener('click', () => {
+            navLinks.classList.toggle('active');
+        });
+
+        // smooth scroll untuk semua anchor
+        document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+            anchor.addEventListener('click', function(e) {
+                const href = this.getAttribute('href');
+                if(href === "#" || href === "") return;
+                const target = document.querySelector(href);
+                if(target) {
+                    e.preventDefault();
+                    navLinks.classList.remove('active');
+                    target.scrollIntoView({
+                        behavior: 'smooth',
+                        block: 'start',
+                    });
+                }
+            });
+        });
+
+        // dynamic navbar effect
+        window.addEventListener('scroll', () => {
+            const navbar = document.querySelector('.navbar');
+            if (window.scrollY > 20) {
+                navbar.style.background = 'rgba(255,255,255,0.96)';
+                navbar.style.boxShadow = '0 8px 20px rgba(0,0,0,0.06)';
+            } else {
+                navbar.style.background = 'rgba(255,255,255,0.92)';
+                navbar.style.boxShadow = '0 4px 20px rgba(0,0,0,0.02)';
+            }
+        });
+    </script>
+    <!-- sedikit tambahan gaya untuk placeholder gambar biar lebih rapi -->
+    <style>
+        .hero-image img {
+            background: linear-gradient(135deg, #256a8f, #103a5c);
+            color: white;
+            font-weight: bold;
+            object-fit: cover;
+            width: 100%;
+            height: auto;
+        }
+        /* styling berita img placeholder */
+        .berita-img {
+            background: #e2e8f0;
+            color: #2c7da0;
+        }
+        .card-icon i, .prestasi-item i {
+            transition: transform 0.2s;
+        }
+        .card:hover .card-icon i {
+            transform: scale(1.05);
+        }
+    </style>
+</body>
+</html>
